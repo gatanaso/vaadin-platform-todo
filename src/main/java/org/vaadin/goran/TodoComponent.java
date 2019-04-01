@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.html.Span;
 
 import java.util.function.Consumer;
 
@@ -16,6 +17,11 @@ public class TodoComponent extends Component implements HasStyle, HasComponents 
         this.todo = todo;
 
         // description
+        Span description = new Span(todo.getDescription());
+
+        description.addClassName("todo-description");
+
+        add(description);
 
         // done button
 
