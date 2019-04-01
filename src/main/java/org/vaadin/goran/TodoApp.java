@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -24,6 +25,7 @@ public class TodoApp extends VerticalLayout {
     private List<Todo> tasks = new ArrayList<>();
 
     private TextField todoInput;
+    private Div todosContainer;
 
     public TodoApp() {
         // input field and controls for adding new tasks
@@ -40,9 +42,11 @@ public class TodoApp extends VerticalLayout {
         todoInputContainer.addClassName("todo-input-container");
 
         // existing tasks container
+        todosContainer = new Div();
+        todosContainer.setClassName("todos-container");
 
         // add to view
-        add(todoInputContainer);
+        add(todoInputContainer, todosContainer);
     }
 
 }
