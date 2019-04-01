@@ -2,6 +2,7 @@ package org.vaadin.goran;
 
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -29,6 +30,9 @@ public class TodoApp extends VerticalLayout {
         todoInput.setPlaceholder("Add todo...");
         todoInput.addClassName("todo-input");
         todoInput.addKeyUpListener(Key.ENTER, e -> Notification.show("not yet implemented"));
+
+        Button addTodo = new Button("Add");
+        addTodo.addClickListener(event -> Notification.show("not yet implemented"));
 
         // existing tasks container
 
