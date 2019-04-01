@@ -43,6 +43,15 @@ public class TodoComponent extends Component implements HasStyle, HasComponents 
         add(doneBtn);
 
         // delete button
+        Button deleteBtn = new Button();
+
+        deleteBtn.addClassName("todo-action");
+
+        deleteBtn.setIcon(new Icon(VaadinIcon.TRASH));
+
+        deleteBtn.addClickListener(event -> deleteHandler.accept(this));
+
+        add(deleteBtn);
     }
 
     public final Todo getTodo() {
