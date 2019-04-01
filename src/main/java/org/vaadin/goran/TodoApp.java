@@ -5,7 +5,6 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -32,10 +31,10 @@ public class TodoApp extends VerticalLayout {
         todoInput = new TextField();
         todoInput.setPlaceholder("Add todo...");
         todoInput.addClassName("todo-input");
-        todoInput.addKeyUpListener(Key.ENTER, e -> Notification.show("not yet implemented"));
+        todoInput.addKeyUpListener(Key.ENTER, e -> addTodo(todoInput.getValue()));
 
         Button addTodo = new Button("Add");
-        addTodo.addClickListener(event -> Notification.show("not yet implemented"));
+        addTodo.addClickListener(event -> addTodo(todoInput.getValue()));
 
         HorizontalLayout todoInputContainer = new HorizontalLayout();
         todoInputContainer.add(todoInput, addTodo);
@@ -49,4 +48,22 @@ public class TodoApp extends VerticalLayout {
         add(todoInputContainer, todosContainer);
     }
 
+    private void addTodo(String description) {
+        if (description != null && description.trim().length() > 0) {
+
+            Todo todo = new Todo(description);
+            tasks.add(todo);
+
+            TodoComponent todoComponent = new TodoComponent(todo, this::delete);
+            todosContainer.add(todoComponent);
+
+            todoInput.clear();
+        }
+    }
+
+    private void delete(TodoComponent todo) {
+        todosContainer.remove(todo);
+        tasks.remove(todo.getTodo());
+
+    }
 }
