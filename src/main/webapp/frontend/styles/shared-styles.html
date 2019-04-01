@@ -1,0 +1,43 @@
+<custom-style>
+    <style>
+        .todo-input-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .todo-input-container,
+        .todos-container {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .todo-input {
+            width: 100%;
+        }
+
+        todo-component {
+            display: flex;
+            align-items: center;
+            border-radius: 0.25em;
+            box-shadow: 0 0.25em 0.5em 0 rgba(0,0,0,0.2);
+            padding: 0.125em 1em;
+            margin-bottom: 0.625em;
+            justify-content: space-evenly;
+            height: 3em;
+        }
+
+        todo-component.done {
+            background-color: var(--lumo-contrast-5pct);
+            color: var(--lumo-contrast-50pct);
+        }
+
+        todo-component .todo-description {
+            flex-grow: 1;
+        }
+
+        todo-component .todo-action {
+            margin: 0 0.5em;
+        }
+    </style>
+<custom-style>
